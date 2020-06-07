@@ -14,6 +14,9 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 
 /**
+ * handles two buttons (with PullDown-Resistors connected to PIN 22 and 23)
+ * and one LED (with limiting resistor (e.g. 100 OHM) connected PIN 24)
+ * 
  * GPIO access; make sure to update wiringpi!!
  * see http://wiringpi.com/wiringpi-updated-to-2-52-for-the-raspberry-pi-4b/
  */

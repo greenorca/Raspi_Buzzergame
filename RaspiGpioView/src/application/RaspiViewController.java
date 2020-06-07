@@ -6,18 +6,20 @@ import javafx.event.ActionEvent;
 import javafx.beans.property.BooleanProperty;
 import javafx.scene.control.RadioButton;
 
-public class RaspiViewController {
+public class RaspiViewController implements Initializable{
     @FXML
     private RadioButton button1;
     @FXML
     private RadioButton button2;
     @FXML
     private RadioButton led1;
+    
+    
 
     // Event Listener on Button.onAction
     @FXML
     public void exitButtonPressed(ActionEvent event) {
-        Platform.exit();
+		Platform.exit();
     }
 
     public BooleanProperty getLed1Property(){

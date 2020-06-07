@@ -3,12 +3,16 @@
 Dieses Beispielprojekt demonstriert die Anzeige und Steuerung von Raspi-GPIOs mit der pi4j-Bibliothek  und JavaFX.
 
 
-
 ## Benötigte Pakete
 
 ```
 sudo apt install git maven openjdk-11-jdk openjfx geany geany-plugin-commander geany-plugins-common
 ```
+
+### Geany Konfiguration
+
+* via tools->load tag files Java-Tags laden für halbwegs CodeCompletion: java-tags.zip entpacken, oder http://download.geany.org/contrib/tags/openjdk8-8u66-b01.java.tags
+* ggf. Maven als Build-Tool konfigurieren
 
 ## Building and Running the Code
 
