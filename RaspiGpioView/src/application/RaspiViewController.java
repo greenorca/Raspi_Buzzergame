@@ -1,10 +1,13 @@
 package application;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.beans.property.BooleanProperty;
 import javafx.scene.control.RadioButton;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class RaspiViewController implements Initializable{
     @FXML
@@ -14,6 +17,9 @@ public class RaspiViewController implements Initializable{
     @FXML
     private RadioButton led1;
     
+    public void initialize(URL url, ResourceBundle bundle){
+		//do what u want here if u have 2
+	}
     
 
     // Event Listener on Button.onAction
