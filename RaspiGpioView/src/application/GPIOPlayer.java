@@ -23,19 +23,26 @@ import javafx.beans.property.SimpleBooleanProperty;
 public class GPIOPlayer {
 
         GpioController gpio;
-        GpioPinDigitalInput btn1, btn2;
+        GpioPinDigitalInput btn1, btn2, btnA, btnB, btnC;
         GpioPinDigitalOutput led1;
         BooleanProperty led1State;
         BooleanProperty btn1State;
         BooleanProperty btn2State;
+		BooleanProperty btnAState,btnBState, btnCState;
 
         public GPIOPlayer() {
             led1State = new SimpleBooleanProperty();
             btn1State = new SimpleBooleanProperty();
             btn2State = new SimpleBooleanProperty();
+            btnAState = new SimpleBooleanProperty();
+            btnBState = new SimpleBooleanProperty();
+            btnCState = new SimpleBooleanProperty();
             gpio = GpioFactory.getInstance();
-            btn1 = gpio.provisionDigitalInputPin(RaspiPin.GPIO_22, PinPullResistance.PULL_DOWN);
+            btn1 = gpio.provisionDigitalInputPin(RaspiPin.GPIO_22, PinPullResistance.PULL_DOWN); //geht nicht ohne pulldown
             btn2 = gpio.provisionDigitalInputPin(RaspiPin.GPIO_23, PinPullResistance.PULL_DOWN);
+            btnA = gpio.provisionDigitalInputPin(RaspiPin.GPIO_29, PinPullResistance.PULL_DOWN);
+            btnB = gpio.provisionDigitalInputPin(RaspiPin.GPIO_28, PinPullResistance.PULL_DOWN);
+            btnC = gpio.provisionDigitalInputPin(RaspiPin.GPIO_27, PinPullResistance.PULL_DOWN);
             led1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_24);
             led1.setShutdownOptions(false, PinState.LOW);
             // create and register gpio pin listener
@@ -54,14 +61,27 @@ public class GPIOPlayer {
                 }
             });
 
-            btn2.addListener(new GpioPinListenerDigital() {
+            btnA.addListener(new GpioPinListenerDigital() {
                 @Override
                 public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-                    // when button is pressed, speed up the blink rate on LED #2
                     System.out.println("GPIO-PIN: "+event.getPin() + ": " + event.getState());
-                    btn2State.set(event.getState().isHigh());
-                    led1.low();
+                    btnAState.set(event.getState().isHigh());
+                }
+            });
 
+            btnB.addListener(new GpioPinListenerDigital() {
+                @Override
+                public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
+                    System.out.println("GPIO-PIN: "+event.getPin() + ": " + event.getState());
+                    btnBState.set(event.getState().isHigh());
+                }
+            });
+
+            btnC.addListener(new GpioPinListenerDigital() {
+                @Override
+                public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
+                    System.out.println("GPIO-PIN: "+event.getPin() + ": " + event.getState());
+                    btnCState.set(event.getState().isHigh());
                 }
             });
 
@@ -84,6 +104,18 @@ public class GPIOPlayer {
 
         public BooleanProperty getBtn2Property(){
           return btn2State;
+        }
+        
+        public BooleanProperty getBtnAProperty(){
+          return btnAState;
+        }
+        
+        public BooleanProperty getBtnBProperty(){
+          return btnBState;
+        }
+        
+        public BooleanProperty getBtnCProperty(){
+          return btnCState;
         }
 
 }

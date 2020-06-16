@@ -34,3 +34,11 @@ java -classpath .:classes:/opt/pi4j/lib/'*' --module-path $OPENJFX --add-modules
 * [https://openjfx.io/openjfx-docs/#maven](https://openjfx.io/openjfx-docs/#maven)
 * pom.xml enthält Abhängigkeiten (jfx, rpi-gpio)
 * compilieren und ausführen mit `mvn javafx:run` oder `mvn -X clean javafx:run`
+* compilieren und als JAR packen: mvn clean compile package
+* ausführen: 
+```
+export OPENJFX=/opt/_openjfx/armv6hf-sdk/lib # make sure to have openjfx installed: https://gluonhq.com/download/javafx-11-0-2-sdk-armv6hf/
+java --module-path $OPENJFX --add-modules javafx.controls,javafx.fxml -jar target/IFZ826_LW_Buzzer-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+
+```
+

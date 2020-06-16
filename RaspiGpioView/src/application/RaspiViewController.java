@@ -15,6 +15,12 @@ public class RaspiViewController implements Initializable{
     @FXML
     private RadioButton button2;
     @FXML
+    private RadioButton buttonA;
+    @FXML
+    private RadioButton buttonB;
+    @FXML
+    private RadioButton buttonC;
+    @FXML
     private RadioButton led1;
     
     public void initialize(URL url, ResourceBundle bundle){
@@ -37,5 +43,16 @@ public class RaspiViewController implements Initializable{
     public BooleanProperty getBtn2Property(){
         return button2.selectedProperty();
     }
+    
+    public BooleanProperty getBtnAProperty(){
+        return buttonA.selectedProperty();
+    }
+    public BooleanProperty getBtnBProperty(){
+        return buttonB.selectedProperty();
+    }
+    public BooleanProperty getBtnCProperty(){
+        return buttonC.selectedProperty();
+    }
+    
 
 }

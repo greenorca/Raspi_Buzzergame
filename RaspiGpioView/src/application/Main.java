@@ -34,6 +34,9 @@ public class Main extends Application{
         controller.getLed1Property().bind(gpio.getLed1Property());
         controller.getBtn1Property().bind(gpio.getBtn1Property());
         controller.getBtn2Property().bind(gpio.getBtn2Property());
+        controller.getBtnAProperty().bind(gpio.getBtnAProperty());
+        controller.getBtnBProperty().bind(gpio.getBtnBProperty());
+        controller.getBtnCProperty().bind(gpio.getBtnCProperty());
     }
 
     public static void main(String[] args) {

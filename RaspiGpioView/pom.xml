@@ -59,6 +59,10 @@
         <artifactId>javafx-maven-plugin</artifactId>
         <version>0.0.4</version>
         <configuration>
+			<commandlineArgs>-Xmx1024m</commandlineArgs>
+			<jlinkImageName>hello</jlinkImageName>
+			<jlinkZipName>hellozip</jlinkZipName>
+			<launcher>launcher</launcher>
             <mainClass>application.Main</mainClass>
         </configuration>
     </plugin>
