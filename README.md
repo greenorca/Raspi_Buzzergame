@@ -27,14 +27,28 @@ sudo apt install xfce4 xfce4-whiskermenu-plugin xfce4-goodies xfce4-session
 
 ## Raspi & GPIOs
 
-### Bibliotheken installieren
+Um mit den GeneralPurpose-Ein- und Ausgängen am Raspi arbeiten zu können, muss das WiringPi-Paket installiert werden:
+
+### WiringPi - Bibliotheken installieren (normalerweise)
 
 ```
 sudo apt install wiringpi
 sudo apt install rpi.gpio
 ```
 
+* testen mit `gpio readall`
+
 **Mehr Info:** [hier](https://www.raspberrypi.org/documentation/usage/gpio/)
+
+### WiringPi - Bibliothek für Raspi 4
+
+* wenn `gpio readall` Fehlermeldungen ausgibt, bitte die aktuellste Version des WiringPi-Packets installieren:
+
+```
+cd /tmp
+wget https://project-downloads.drogon.net/wiringpi-latest.deb
+sudo dpkg -i wiringpi-latest.deb
+```
 
 ### Pin-Layout
 
@@ -50,7 +64,7 @@ sudo apt install rpi.gpio
 
 ### Ausprobieren (mit Console)
 
-Teile und herrsche, wenn Schaltung mit Terminal nicht funktioniert wird sie auch mit Java nicht funktionieren.
+Teile und herrsche: wenn Eure Schaltung mit dem Terminal nicht funktioniert wird sie auch mit Java nicht funktionieren.
 
 In der bash können GPIOs gelesen und geschrieben werden. Hier ein Beispiel zum Ansteuern des WiringPi Pin 24 als Ausgang:
 
